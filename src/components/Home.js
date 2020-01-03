@@ -3,7 +3,8 @@ import { Col, Row, Container, Button, Spinner, Pagination } from 'react-bootstra
 import { WooCommerce } from "./WooConnection.js";
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import axios from 'axios';
- class Product extends Component {
+import Header from "./Header.js";
+ class Home extends Component {
        constructor(props) {
           super(props);
            this.pageChanged = this.pageChanged.bind(this);
@@ -50,6 +51,9 @@ import axios from 'axios';
     return (
         this.state.items.map((item) => {
           return (
+<div>
+        <Header />
+
                 <div className="main_div_style bg-light-purple dib pa4 tc">
               <Col key={item.id} xs={3} className="product_item"> <div key={item.id}>
                 <img width="100%" alt="product" src={item.images[0].src} />
@@ -60,6 +64,7 @@ import axios from 'axios';
                   </div>
               </Col>
               </div>
+</div>
              );
             })    
     );
@@ -111,4 +116,4 @@ const paginationBasic = (
         }
     }
 
-export default Product;
+export default Home;
